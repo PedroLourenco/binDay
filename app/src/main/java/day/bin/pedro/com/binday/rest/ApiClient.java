@@ -1,4 +1,4 @@
-package rest;
+package day.bin.pedro.com.binday.rest;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

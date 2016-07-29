@@ -1,12 +1,10 @@
-package rest;
+package day.bin.pedro.com.binday.rest;
 
 import java.util.List;
 
-import model.PropertyInformation;
-import model.PropertyInformationResponse;
+import day.bin.pedro.com.binday.model.PropertyInformation;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**

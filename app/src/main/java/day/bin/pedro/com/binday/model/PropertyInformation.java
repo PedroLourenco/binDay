@@ -1,4 +1,4 @@
-package model;
+package day.bin.pedro.com.binday.model;
 import com.google.gson.annotations.SerializedName;
 
 /**

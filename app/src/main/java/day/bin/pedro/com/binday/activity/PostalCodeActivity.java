@@ -1,4 +1,4 @@
-package day.bin.pedro.com.binday;
+package day.bin.pedro.com.binday.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,28 +6,25 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.List;
 
-import Util.DividerItemDecoration;
-import adapter.PropertyInformationAdapter;
-import model.PropertyInformation;
-import model.PropertyInformationResponse;
-import rest.ApiClient;
-import rest.ApiInterface;
+import day.bin.pedro.com.binday.R;
+import day.bin.pedro.com.binday.Util.DividerItemDecoration;
+import day.bin.pedro.com.binday.adapter.PropertyInformationAdapter;
+import day.bin.pedro.com.binday.model.PropertyInformation;
+import day.bin.pedro.com.binday.rest.ApiClient;
+import day.bin.pedro.com.binday.rest.ApiInterface;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PostalCodeActivuty extends AppCompatActivity {
+public class PostalCodeActivity extends AppCompatActivity {
 
-    private static final String TAG = "PostalCodeActivuty";
+    private static final String TAG = "PostalCodeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

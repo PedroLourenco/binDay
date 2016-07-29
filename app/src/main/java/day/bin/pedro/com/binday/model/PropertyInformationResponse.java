@@ -1,6 +1,4 @@
-package model;
-
-import android.graphics.Movie;
+package day.bin.pedro.com.binday.model;
 
 import com.google.gson.annotations.SerializedName;
 

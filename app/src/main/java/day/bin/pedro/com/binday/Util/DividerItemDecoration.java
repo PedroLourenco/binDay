@@ -1,4 +1,4 @@
-package Util;
+package day.bin.pedro.com.binday.Util;
 
 import android.content.Context;
 import android.content.res.TypedArray;
