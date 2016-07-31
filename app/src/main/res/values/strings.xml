@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bin Day</string>
+    <string name="title_activity_waste_collection">Next Collection Day</string>
 </resources>

@@ -3,6 +3,7 @@ package day.bin.pedro.com.binday.rest;
 import java.util.List;
 
 import day.bin.pedro.com.binday.model.PropertyInformation;
+import day.bin.pedro.com.binday.model.WasteCollection;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -17,4 +18,7 @@ public interface ApiInterface {
 
     @GET("getPropertiesForPostCode")
     Call<List<PropertyInformation>> getPropertiesForPostCode(@Query("postcode") String postcode);
+
+    @GET("getWasteCollectionDatabyUprn")
+    Call<List<WasteCollection>> getWasteCollectionDatabyUprn(@Query("uprn") String uprn);
 }

@@ -1,4 +1,5 @@
 package day.bin.pedro.com.binday.model;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -12,8 +13,8 @@ public class PropertyInformation {
     private String shortAddress;
     @SerializedName("PropertyNumber")
     private int propertyNumber;
-    @SerializedName("PropertyName")
-    private String propertyName;
+    //@SerializedName("PropertyName")
+   // private String propertyName;
     @SerializedName("Street")
     private String street;
     @SerializedName("Locality")
@@ -45,13 +46,13 @@ public class PropertyInformation {
         this.propertyNumber = propertyNumber;
     }
 
-    public String getPropertyName() {
-        return propertyName;
-    }
+    //public String getPropertyName() {
+    //    return propertyName;
+    //}
 
-    public void setPropertyName(String propertyName) {
-        this.propertyName = propertyName;
-    }
+    //public void setPropertyName(String propertyName) {
+      //  this.propertyName = propertyName;
+    //}
 
     public String getStreet() {
         return street;
