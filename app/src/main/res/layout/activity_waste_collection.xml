@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/waste_address"
-            android:text="Address: "
+            android:text="@string/address"
             android:textStyle="bold"
             android:textColor="@android:color/black"/>
 
@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/waste_address_value"
+            android:paddingLeft="5dp"
             android:textColor="@android:color/black"/>
     </LinearLayout>
 
@@ -35,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next Collection Week Day: "
+            android:text="@string/nextCollectionWeekDay"
             android:textStyle="bold"
             android:textColor="@android:color/black"/>
 
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/wasteWeekDay"
             android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
             android:textColor="@android:color/black"/>
     </LinearLayout>
 
@@ -53,7 +55,6 @@
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_gravity="center|center_horizontal"
         android:background="@color/recycleViewBackground"
         android:visibility="visible"/>

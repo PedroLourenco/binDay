@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/postCodeSearch"
-            android:hint="YO24 1NB"
+            android:hint="@string/postCodeSearchHint"
             android:gravity="center"
             android:maxLength="8"/>
 
@@ -27,7 +27,6 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
             android:id="@+id/buttonSearch"
             android:src="@drawable/ic_search_black_24dp"/>
     </LinearLayout>
@@ -35,7 +34,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please Choose Your Address: "
+        android:text="@string/chooseAddress"
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:layout_marginLeft="16dp"/>
@@ -52,7 +51,7 @@
             android:id="@+id/text_no_results"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Please verify your postCode!"
+            android:text="@string/verifyPostCode"
             android:textStyle="bold"
             android:paddingBottom="20dp"
             android:gravity="center"/>

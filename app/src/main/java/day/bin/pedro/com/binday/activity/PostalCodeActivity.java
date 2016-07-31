@@ -52,9 +52,8 @@ public class PostalCodeActivity extends AppCompatActivity {
         // Add click event listener to the recyclerView
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        Log.d(TAG, "clcik on : " + position + "uprn: " + view.getTag());
-
+                    @Override
+                    public void onItemClick(View view, int position) {
                         Intent intent = new Intent(getBaseContext(), WasteCollectionActivity.class);
                         intent.putExtra(EXTRA_UPRN, result.get(position).getUprn());
                         intent.putExtra(EXTRA_ADDRESS, result.get(position).getShortAddress());
@@ -76,7 +75,7 @@ public class PostalCodeActivity extends AppCompatActivity {
 
                     if (postCode.getText().toString().isEmpty()) {
                         // PostCode empty
-                        textNoResults.setText("Please insert your postal code!");
+                        textNoResults.setText(R.string.insertPostCode);
 
                         noResults.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.GONE);
@@ -98,7 +97,7 @@ public class PostalCodeActivity extends AppCompatActivity {
 
                                     recyclerView.setAdapter(propertyInformationAdapter);
                                 } else {
-                                    textNoResults.setText("Please verify your postCode!");
+                                    textNoResults.setText(R.string.verifyPostCode);
 
                                     noResults.setVisibility(View.VISIBLE);
                                     recyclerView.setVisibility(View.GONE);

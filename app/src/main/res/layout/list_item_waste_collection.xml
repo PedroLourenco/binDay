@@ -27,7 +27,7 @@
             android:id="@+id/binImage"
             android:layout_width="80dp"
             android:layout_height="90dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp" />
 
         <LinearLayout
             android:id="@+id/wasteLayout"
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textColor="@android:color/black"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/nextCollectionLayout"
@@ -53,22 +53,23 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Next Collection: "
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/nextCollection"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/collectionday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="2dp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/nextCollection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"/>
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -76,20 +77,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="2dp">
+                android:padding="6dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Waste Type: "
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/wasteType"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/wasteType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"/>
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
 
             <LinearLayout
@@ -102,15 +104,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Materials Collected: "
-                    android:textStyle="bold"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/materialsCollected"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/materialsCollected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"/>
+                    android:paddingLeft="5dp"
+                    android:textColor="@android:color/black" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
