@@ -1,16 +1,12 @@
 package day.bin.pedro.com.binday.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView;
-
 import java.util.List;
-
 import day.bin.pedro.com.binday.R;
 import day.bin.pedro.com.binday.model.PropertyInformation;
 

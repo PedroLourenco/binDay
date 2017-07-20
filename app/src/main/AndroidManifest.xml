@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name=".activity.WasteCollectionActivity"
-            android:label="@string/title_activity_waste_collection"></activity>
+            android:label="@string/title_activity_waste_collection" />
+        <activity android:name=".activity.HelpActivity"></activity>
     </application>
 
 </manifest>

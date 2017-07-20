@@ -85,14 +85,11 @@ public class WasteCollectionAdapter extends RecyclerView.Adapter<WasteCollection
         }
 
         if (wasteCollection.get(position).getWasteType().equals("GREEN")) {
-            holder.binImage.setImageResource(R.drawable.bin);
-            holder.binImage.setColorFilter(Color.argb(255, 34, 128, 34));
+            holder.binImage.setImageResource(R.drawable.bin_green);
         } else if (wasteCollection.get(position).getWasteType().equals("GREY BIN/SACK")) {
-            holder.binImage.setImageResource(R.drawable.bin);
-            holder.binImage.setColorFilter(Color.argb(255, 105, 105, 105));
+            holder.binImage.setImageResource(R.drawable.bin_gray);
         } else {
-            holder.binImage.setImageResource(R.drawable.box);
-            holder.binImage.setColorFilter(Color.argb(255, 0, 51, 51));
+            holder.binImage.setImageResource(R.drawable.bin_blue);
         }
     }
 

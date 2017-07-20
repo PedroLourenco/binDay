@@ -13,8 +13,6 @@ public class PropertyInformation {
     private String shortAddress;
     @SerializedName("PropertyNumber")
     private int propertyNumber;
-    //@SerializedName("PropertyName")
-   // private String propertyName;
     @SerializedName("Street")
     private String street;
     @SerializedName("Locality")
@@ -45,14 +43,6 @@ public class PropertyInformation {
     public void setPropertyNumber(int propertyNumber) {
         this.propertyNumber = propertyNumber;
     }
-
-    //public String getPropertyName() {
-    //    return propertyName;
-    //}
-
-    //public void setPropertyName(String propertyName) {
-      //  this.propertyName = propertyName;
-    //}
 
     public String getStreet() {
         return street;

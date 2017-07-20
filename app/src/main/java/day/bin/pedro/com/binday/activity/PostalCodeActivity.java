@@ -1,15 +1,26 @@
 package day.bin.pedro.com.binday.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -65,13 +76,26 @@ public class PostalCodeActivity extends AppCompatActivity {
 
         ImageView searchPostCode = (ImageView) findViewById(R.id.buttonSearch);
 
-        //String  postalCode =  "YO24 1NB";
-
         if (searchPostCode != null) {
             searchPostCode.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    // Check if no view has focus:
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+                    imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
                     // Perform action on click
-                    TextView postCode = (TextView) findViewById(R.id.postCodeSearch);
+                    EditText postCode = (EditText) findViewById(R.id.postCodeSearch);
+                    postCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                        @Override
+                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                            boolean handled = false;
+                            if (actionId == EditorInfo.IME_ACTION_SEND) {
+                                Toast.makeText(PostalCodeActivity.this, "fffffffff", Toast.LENGTH_SHORT).show();
+                                handled = true;
+                            }
+                            return handled;
+                        }
+                    });
 
                     if (postCode.getText().toString().isEmpty()) {
                         // PostCode empty
@@ -115,4 +139,28 @@ public class PostalCodeActivity extends AppCompatActivity {
             });
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.help:
+                // Open the help activity
+                Intent intent = new Intent(getBaseContext(), HelpActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
 }

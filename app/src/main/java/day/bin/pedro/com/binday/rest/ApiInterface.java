@@ -14,7 +14,7 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     //https://doitonline.york.gov.uk/BinsApi/EXOR/getPropertiesForPostCode?postcode=YO24%201NB
-    //https://doitonline.york.gov.uk/BinsApi/EXOR/getPropertiesForPostCode?postcode=YO24%2B1NB
+    //https://doitonline.york.gov.uk/BinsApi/EXOR/getWasteCollectionDatabyUprn?uprn=100050567111
 
     @GET("getPropertiesForPostCode")
     Call<List<PropertyInformation>> getPropertiesForPostCode(@Query("postcode") String postcode);

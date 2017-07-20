@@ -35,8 +35,8 @@ public class WasteCollectionActivity extends AppCompatActivity {
         String uprn = "";
         String address = "";
         String posstCode = "";
-
         Bundle extras = getIntent().getExtras();
+
         if (extras != null) {
             uprn = extras.getString(PostalCodeActivity.EXTRA_UPRN);
             address = extras.getString(PostalCodeActivity.EXTRA_ADDRESS);
@@ -73,8 +73,6 @@ public class WasteCollectionActivity extends AppCompatActivity {
                     WasteCollectionAdapter wasteCollectionAdapter = new WasteCollectionAdapter(result);
                     recyclerView.setAdapter(wasteCollectionAdapter);
                 }
-
-
             }
 
             @Override
