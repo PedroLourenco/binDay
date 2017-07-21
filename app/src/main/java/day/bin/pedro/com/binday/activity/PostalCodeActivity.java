@@ -22,6 +22,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 import day.bin.pedro.com.binday.R;
@@ -47,6 +50,11 @@ public class PostalCodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postal_code);
+
+        // Add admob to activity
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         final LinearLayout noResults = (LinearLayout) findViewById(R.id.layout_no_results);
         final TextView textNoResults = (TextView) findViewById(R.id.text_no_results);

@@ -10,4 +10,6 @@
     <string name="wasteType">Waste Type:</string>
     <string name="materialsCollected">Materials Collected:</string>
     <string name="insertPostCode">Please insert your postCode.</string>
+    <!-- AdMob ad unit IDs -->
+    <string name="banner_top">ca-app-pub-1206282599000327/4952564504</string>
 </resources>
