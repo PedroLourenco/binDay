@@ -85,18 +85,8 @@ public class PostalCodeActivity extends AppCompatActivity {
 
                     // Perform action on click
                     EditText postCode = (EditText) findViewById(R.id.postCodeSearch);
-                    postCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                        @Override
-                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                            boolean handled = false;
-                            if (actionId == EditorInfo.IME_ACTION_SEND) {
-                                Toast.makeText(PostalCodeActivity.this, "fffffffff", Toast.LENGTH_SHORT).show();
-                                handled = true;
-                            }
-                            return handled;
-                        }
-                    });
 
+                    // Show the address list taht match the post code or message
                     if (postCode.getText().toString().isEmpty()) {
                         // PostCode empty
                         textNoResults.setText(R.string.insertPostCode);
