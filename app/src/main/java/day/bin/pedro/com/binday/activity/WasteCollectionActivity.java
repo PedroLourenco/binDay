@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.List;
 
 import day.bin.pedro.com.binday.R;
@@ -36,6 +39,11 @@ public class WasteCollectionActivity extends AppCompatActivity {
         String address = "";
         String posstCode = "";
         Bundle extras = getIntent().getExtras();
+
+        // Add admob to activity
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         if (extras != null) {
             uprn = extras.getString(PostalCodeActivity.EXTRA_UPRN);
