@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bin Day</string>
+    <string name="app_name">York Bin Day</string>
     <string name="title_activity_waste_collection">Next Collection Day</string>
     <string name="postCodeSearchHint">YO24 1NB</string>
     <string name="chooseAddress">Please Choose Your Address:</string>
