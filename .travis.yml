@@ -8,12 +8,12 @@ android:
 # second 'tools' updates SDK tools 'til last version ** in remote repository number 11 ** (current last one)
   - tools
   - platform-tools
-  - build-tools-23.0.3
-  - android-23
+  - build-tools-25.0.0
+  - android-25
   - extra-android-m2repository
   - sys-img-armeabi-v7a-android-23
 before_install:
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI -c 20M
+  - echo no | android create avd --force -n test -t ANDROID_TARGET --abi ANDROID_ABI
   - emulator -avd test -no-skin -no-audio -no-window &
   - chmod +x ./wait_for_emulator.sh
   - ./wait_for_emulator.sh
