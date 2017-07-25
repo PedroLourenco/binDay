@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion = "26.0.0"
 
     defaultConfig {
         applicationId "day.bin.pedro.com.binday"
@@ -29,6 +29,9 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.android.support:design:23.4.0'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
+
+
+
 
     testCompile 'junit:junit:4.12'
 }
