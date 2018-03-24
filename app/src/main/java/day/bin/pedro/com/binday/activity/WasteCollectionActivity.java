@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import day.bin.pedro.com.binday.R;
@@ -51,8 +54,8 @@ public class WasteCollectionActivity extends AppCompatActivity {
             postCode = extras.getString(PostalCodeActivity.EXTRA_POSTCODE);
         }
 
-        TextView address_value = (TextView) findViewById(R.id.waste_address_value);
-        address_value.setText(address + ", " + postCode);
+        TextView addressValue = (TextView) findViewById(R.id.waste_address_value);
+        addressValue.setText(address + ", " + postCode);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.wasteCollectionView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -75,6 +78,24 @@ public class WasteCollectionActivity extends AppCompatActivity {
                 List<WasteCollection> result = response.body();
 
                 if (result.size() > 0) {
+                    Long nextCollectionDate = Long.parseLong(result.get(0).getNextCollection().replaceAll("\\D", ""));
+                    Long aux;
+
+                    // Get next collection date
+                    for (int i = 1; i < result.size(); i++) {
+                        aux =  Long.parseLong(result.get(i).getNextCollection().replaceAll("\\D", ""));
+
+                        if (nextCollectionDate > aux) {
+                            nextCollectionDate = aux;
+                        }
+                    }
+
+                    Date date = new Date(nextCollectionDate);
+                    DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+                    TextView nextCollection = (TextView) findViewById(R.id.nextCollectionDate);
+                    nextCollection.setText(formatter.format(new Date(nextCollectionDate)));
+
                     //TODO only show data if CollectionAvailable = true
                     TextView weekDay = (TextView) findViewById(R.id.wasteWeekDay);
                     weekDay.setText(ConvertWeekDays.getWeekDay(result.get(0).getCollectionday()));
