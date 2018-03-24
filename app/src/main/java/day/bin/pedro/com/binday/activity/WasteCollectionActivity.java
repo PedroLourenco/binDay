@@ -37,7 +37,7 @@ public class WasteCollectionActivity extends AppCompatActivity {
 
         String uprn = "";
         String address = "";
-        String posstCode = "";
+        String postCode = "";
         Bundle extras = getIntent().getExtras();
 
         // Add admob to activity
@@ -48,11 +48,11 @@ public class WasteCollectionActivity extends AppCompatActivity {
         if (extras != null) {
             uprn = extras.getString(PostalCodeActivity.EXTRA_UPRN);
             address = extras.getString(PostalCodeActivity.EXTRA_ADDRESS);
-            posstCode = extras.getString(PostalCodeActivity.EXTRA_POSTCODE);
+            postCode = extras.getString(PostalCodeActivity.EXTRA_POSTCODE);
         }
 
         TextView address_value = (TextView) findViewById(R.id.waste_address_value);
-        address_value.setText(address + ", " + posstCode);
+        address_value.setText(address + ", " + postCode);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.wasteCollectionView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

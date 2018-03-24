@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "86075828629",
+    "firebase_url": "https://yorkbinday.firebaseio.com",
+    "project_id": "yorkbinday",
+    "storage_bucket": "yorkbinday.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86075828629:android:4bfe682ca314a822",
+        "android_client_info": {
+          "package_name": "day.bin.pedro.com.binday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86075828629-81008tcfmepqbcr5gon70lttl7u9nb88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "day.bin.pedro.com.binday",
+            "certificate_hash": "b9dce4e405b89930d60ed8e1da1a95ec28799b93"
+          }
+        },
+        {
+          "client_id": "86075828629-0dvlk803ktv87l611njdl693516vuqmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU38lGrA05WYyM9jP20SThTXH-TOnx0Ok"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86075828629-0dvlk803ktv87l611njdl693516vuqmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
