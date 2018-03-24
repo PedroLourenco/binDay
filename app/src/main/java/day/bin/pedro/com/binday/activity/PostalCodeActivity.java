@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.List;
 
@@ -45,11 +46,15 @@ public class PostalCodeActivity extends AppCompatActivity {
     public static final String EXTRA_ADDRESS = "EXTRA_ADDRESS";
     public static final String EXTRA_POSTCODE = "EXTRA_POSTCODE";
     private List<PropertyInformation> result;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_postal_code);
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         // Add admob to activity
         AdView mAdView = (AdView) findViewById(R.id.adView);
@@ -87,6 +92,7 @@ public class PostalCodeActivity extends AppCompatActivity {
         if (searchPostCode != null) {
             searchPostCode.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+
                     // Check if no view has focus:
                     InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
@@ -102,6 +108,12 @@ public class PostalCodeActivity extends AppCompatActivity {
                         noResults.setVisibility(View.VISIBLE);
                         recyclerView.setVisibility(View.GONE);
                     } else {
+                        // Track postcode search
+                        Bundle bundle = new Bundle();
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "PostCodeSearch");
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, postCode.getText().toString());
+                        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
                         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
                         Call<List<PropertyInformation>> call = apiService.getPropertiesForPostCode(postCode.getText().toString());
