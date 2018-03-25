@@ -12,12 +12,14 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
 import day.bin.pedro.com.binday.R;
+import day.bin.pedro.com.binday.Util.DateUtils;
 import day.bin.pedro.com.binday.model.PropertyInformation;
 import day.bin.pedro.com.binday.model.WasteCollection;
 
@@ -75,12 +77,13 @@ public class WasteCollectionAdapter extends RecyclerView.Adapter<WasteCollection
             if(!wasteCollection.get(position).getNextCollection().toString().isEmpty()) {
                 String jsonDate = wasteCollection.get(position).getNextCollection();
 
-                Long datetimestamp = Long.parseLong(jsonDate.replaceAll("\\D", ""));
-                Date date = new Date(datetimestamp);
+                Date date = new Date(Long.parseLong(jsonDate.replaceAll("\\D", "")));
                 DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-                String dateFormatted = formatter.format(date);
 
-                holder.nextCollection.setText(dateFormatted);
+                Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+                calendar.setTime(date);
+
+                holder.nextCollection.setText(formatter.format(DateUtils.convertTimeToLocal("Europe/London", calendar).getTime()));
             }
         }
 
