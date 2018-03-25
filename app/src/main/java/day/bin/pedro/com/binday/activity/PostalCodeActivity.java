@@ -109,10 +109,9 @@ public class PostalCodeActivity extends AppCompatActivity {
                         recyclerView.setVisibility(View.GONE);
                     } else {
                         // Track postcode search
-                        Bundle bundle = new Bundle();
-                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "PostCodeSearch");
-                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, postCode.getText().toString());
-                        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+                        Bundle params = new Bundle();
+                        params.putString("postcode", postCode.getText().toString());
+                        mFirebaseAnalytics.logEvent("searchPostcode", params);
 
                         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
 
