@@ -5,8 +5,8 @@
     <string name="chooseAddress">Please Choose Your Address:</string>
     <string name="verifyPostCode">Please verify your postCode.</string>
     <string name="address">Address:</string>
-    <string name="nextCollectionWeekDay">Next Collection Week Day:</string>
     <string name="nextCollectionDate">Next Collection Date:</string>
+    <string name="nextCollectionType">Next Collection Type:</string>
     <string name="nextCollection">Next Collection:</string>
     <string name="wasteType">Waste Type:</string>
     <string name="materialsCollected">Materials Collected:</string>

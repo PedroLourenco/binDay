@@ -1,13 +1,9 @@
 package day.bin.pedro.com.binday.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -15,15 +11,16 @@ import com.google.android.gms.ads.AdView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import day.bin.pedro.com.binday.R;
-import day.bin.pedro.com.binday.Util.ConvertWeekDays;
+import day.bin.pedro.com.binday.Util.DateUtils;
 import day.bin.pedro.com.binday.Util.DividerItemDecoration;
-import day.bin.pedro.com.binday.adapter.PropertyInformationAdapter;
 import day.bin.pedro.com.binday.adapter.WasteCollectionAdapter;
-import day.bin.pedro.com.binday.model.PropertyInformation;
 import day.bin.pedro.com.binday.model.WasteCollection;
 import day.bin.pedro.com.binday.rest.ApiClient;
 import day.bin.pedro.com.binday.rest.ApiInterface;
@@ -79,26 +76,32 @@ public class WasteCollectionActivity extends AppCompatActivity {
 
                 if (result.size() > 0) {
                     Long nextCollectionDate = Long.parseLong(result.get(0).getNextCollection().replaceAll("\\D", ""));
-                    Long aux;
+                    Long nextCollectionDateTemp;
+                    String nexCollectionType = "";
 
                     // Get next collection date
                     for (int i = 1; i < result.size(); i++) {
-                        aux =  Long.parseLong(result.get(i).getNextCollection().replaceAll("\\D", ""));
+                        nextCollectionDateTemp =  Long.parseLong(result.get(i).getNextCollection().replaceAll("\\D", ""));
 
-                        if (nextCollectionDate > aux) {
-                            nextCollectionDate = aux;
+                        if (nextCollectionDate > nextCollectionDateTemp) {
+                            nextCollectionDate = nextCollectionDateTemp;
+                            nexCollectionType = result.get(i).getWasteType();
                         }
                     }
 
-                    Date date = new Date(nextCollectionDate);
-                    DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                    Date dates = new Date(Long.parseLong(nextCollectionDate.toString()));
 
-                    TextView nextCollection = (TextView) findViewById(R.id.nextCollectionDate);
-                    nextCollection.setText(formatter.format(new Date(nextCollectionDate)));
+                    Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+                    calendar.setTime(dates);
 
-                    //TODO only show data if CollectionAvailable = true
-                    TextView weekDay = (TextView) findViewById(R.id.wasteWeekDay);
-                    weekDay.setText(ConvertWeekDays.getWeekDay(result.get(0).getCollectionday()));
+                    DateFormat formatter = new SimpleDateFormat("EEEE d MMM yyyy");
+
+                    TextView nextCollectionDateLabel = (TextView) findViewById(R.id.nextCollectionDate);
+                    nextCollectionDateLabel.setText(formatter.format(DateUtils.convertTimeToLocal("Europe/London", calendar).getTime()));
+
+                    TextView nextCollectionTypeLabel = (TextView) findViewById(R.id.nextCollectionType);
+                    nextCollectionTypeLabel.setText(nexCollectionType.toString());
+
                     WasteCollectionAdapter wasteCollectionAdapter = new WasteCollectionAdapter(result);
                     recyclerView.setAdapter(wasteCollectionAdapter);
                 }
