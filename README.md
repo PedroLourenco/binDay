@@ -7,6 +7,7 @@ BinDay is an Android Client created to provide information about the Refuse/Recy
 All information data is provided by the council of York public API.
 
 
+
 ## About me
 I started developing for android on my spare time.
 
